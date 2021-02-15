@@ -5,7 +5,7 @@ from slackbot.bot import respond_to
 
 def get_weather(city_number):
     # 天気のURL設定 city_numberには都市の番号を指定
-    url = "http://weather.livedoor.com/forecast/webservice/json/v1?city=%s" % city_number
+    url = "https://weather.tsukumijima.net/api/forecast/city/%s" % city_number
 
     # URLを取得
     response = requests.get(url)
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     main()
 
 
-@respond_to('^(今日|明日|明後日)の天気$')
+@respond_to('(今日|明日)の天気')
 def whether_1(message, group):
     # 絵文字リストを作る
     dic_weather = {
